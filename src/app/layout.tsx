@@ -15,7 +15,10 @@ import Footer from "@/components/Footer";
 // const inter = Inter({ subsets: ["latin"] });
 // const major = Major_Mono_Display({ subsets: ["latin"], weight: ["400"] });
 // const arap = Noto_Kufi_Arabic({ subsets: ["arabic"], weight: ["300"] });
-const ropo = Roboto({ subsets: ["latin"], weight: ["500", "700", "900"] });
+const ropo = Roboto({
+  subsets: ["latin"],
+  weight: ["500", "700", "900"],
+});
 
 //! METADATA
 export const metadata: Metadata = {
@@ -27,12 +30,23 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: RootLayoutProps) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="\cloud-hosting.png"
+        />
+      </head>
       <body className={ropo.className}>
         <Header />
-        <ToastContainer theme="colored" position="top-center" />
+        <ToastContainer
+          theme="colored"
+          position="top-center"
+        />
         <main>{children}</main>
         <Footer />
       </body>
